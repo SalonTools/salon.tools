@@ -1,0 +1,7 @@
+.idea/
+.DS_Store
+node_modules/
+locales/
+
+.env
+*.auth.json

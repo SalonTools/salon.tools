@@ -1,0 +1,10 @@
+{%- macro blockButton (href, label, classes = "", attrs = "") -%}
+
+<section class="block-button flex-row {{ classes }}">
+   <a class="outlined-area order-2 flex-grow-0 non-link" {{ attrs }} href="{{ href }}">{{ label }}</a>
+
+   <hr class="order-1 auto-width">
+   <hr class="order-3 auto-width">
+</section>
+
+{%- endmacro -%}

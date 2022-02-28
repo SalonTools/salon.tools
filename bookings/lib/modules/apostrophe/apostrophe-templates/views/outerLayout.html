@@ -1,0 +1,72 @@
+{%- extends "outerLayoutBase.html" -%}
+{%- set editor = data.permissions.edit -%}
+
+{%- block title -%}
+   {%- set pieceTitle = data | prop('piece.title') -%}
+   {%- set pageTitle = data | prop('page.title') -%}
+
+   {%- if pieceTitle -%}{{ pieceTitle }} | {% endif -%}
+   {%- if pageTitle -%}{{ pageTitle }} | {% endif -%}
+   {{ data.global.siteName }}
+{%- endblock -%}
+
+{%- block extraHead -%}
+   <script> document.documentElement.className += ' scripted'; </script>
+   <meta name="description" content="
+      {%- block description -%}
+         {%- if data.page.seo -%}
+            {{ apos.areas.plaintext(data.page.seo) }}
+         {%- endif -%}
+      {%- endblock -%}
+   ">
+   {%- set keywordsSource = data.piece or data.page -%}
+   {%- if keywordsSource -%}
+   <meta name="keywords" content="{{ keywordsSource.lowSearchText | keywords }}">
+   {%- endif -%}
+
+   {# Global site tag (gtag.js) - Google Analytics #}
+   <script async src="//www.googletagmanager.com/gtag/js?id=UA-92603473-2"></script>
+   <script>window.dataLayer = window.dataLayer || []; function gtag () { dataLayer.push(arguments); }</script>
+
+   {%- include "@kwsites/cms-seo:meta.html" -%}
+
+   {#
+      <link rel="icon" type="image/png" href="/img/favicon-square.png">
+      <link rel="sitemap" href="/sitemap.xml"/>
+      <link rel="search" type="application/opensearchdescription+xml" href="{{ data.baseUrlWithPrefix }}/osd.xml" title="{{ data.global.siteName }}" />
+   #}
+
+   <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+
+   {%- include "include/trailing-head.html" -%}
+
+{%- endblock -%}
+
+{%- block bodyClass -%} {{ super() }} page-type-{{ module.getOption('name') or data.page.type }} {%- endblock -%}
+
+{%- block beforeMain -%}
+<main class="app">
+   <header class="page-header">
+      <h1>
+         <a href="{{ data.home._url }}">
+            {%- block pageHeader -%} {{ data.global.siteName }} {%- endblock -%}
+         </a>
+      </h1>
+   </header>
+   {%- block pageMenu -%}{% include "include/menu.html" %}{%- endblock -%}
+   <section class="page-content page-component">
+{%- endblock -%}
+
+{%- block main -%}{%- endblock -%}
+
+{%- block afterMain -%}
+   {%- block seoEdit -%}
+      {%- include "include/edit-seo.html" -%}
+   {%- endblock -%}
+</main>
+
+   {%- block pageFooter -%}
+      {%- include "footer.html" -%}
+   {%- endblock -%}
+
+{%- endblock -%}{# /afterMain #}

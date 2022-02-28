@@ -1,0 +1,20 @@
+{%- set className = data.options.className -%}
+{%- set title = data.options.title -%}
+{%- set first = apos.images.first(data.widget) %}
+
+<div class="image-container pos-r {{ className }}"
+     {%- if title %} title="{{ title }}" {% endif %}
+     style="background-image: url({{ apos.attachments.url(first, {size: 'full'}) }}) {{ first | focalPoint }}">
+
+   {%- set images = data.widget._pieces -%}
+   {% if images.length > 1 %}
+   <div
+      class="image-container pos-a"
+      style="transition: transform 500ms ease; top: 0; left: 0; height: 100%; width: 100%;"></div>
+   <gf-carousel>
+      {% for img in images -%}
+      <gf-carousel-image url="{{ apos.attachments.url(img.item.attachment, { crop: img.relationship }) }}"></gf-carousel-image>
+      {% endfor -%}
+   </gf-carousel>
+   {% endif %}
+</div>

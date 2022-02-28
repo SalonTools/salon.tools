@@ -1,0 +1,9 @@
+<section class="page-menu">
+   <ul>
+      {% for tab in data.home._children %}
+      <li><a
+         class="{% if data.page and (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id) %} current {% endif %}"
+         href="{{ tab._url }}">{{ tab.title }}</a></li>
+      {% endfor %}
+   </ul>
+</section>

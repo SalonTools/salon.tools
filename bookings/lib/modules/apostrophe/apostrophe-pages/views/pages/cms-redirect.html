@@ -1,0 +1,13 @@
+{%- extends data.outerLayout -%}
+
+{%- block bodyClass -%}
+   {{ super() }} general-page
+{%- endblock -%}
+
+{%- block main -%}
+   {%- set redirectUrl = data.page.redirectUrl -%}
+   <h2 class="heading-text ta-center">{{ data.page.title }}</h2>
+   <section class="ta-center mt-2">
+      This page redirects to <a href="{{ redirectUrl }}">{{ redirectUrl }}</a>
+   </section>
+{%- endblock -%}

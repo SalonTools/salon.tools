@@ -1,0 +1,78 @@
+@import "variables";
+
+@import "utils/reset";
+@import "utils/apos-theme";
+
+html {
+   --menu-height: 2rem;
+   --desktop-width: @website-width;
+
+   background-color: @foreground-color;
+   color: @background-color;
+   @media @mobile {
+      font: @mobile-font-size/@mobile-line-height @base-font-face;
+   }
+   @media @not-mobile {
+      font: @base-font-size/@base-line-height @base-font-face;
+      font-weight: 300;
+   }
+
+   height: 100vh;
+}
+
+body {
+   height: 100vh;
+}
+
+main {
+   background: @background-color;
+   color: @foreground-color;
+
+   position: relative;
+   margin: 0 auto;
+
+   @media @mobile {
+      width: 100vw;
+   }
+
+   @media @not-mobile {
+      width: ~"min(var(--desktop-width), 80vw)";
+   }
+}
+
+.page-header {
+   background: @accent-color;
+   text-align: center;
+
+   a {
+      color: @background-color;
+      text-decoration: none;
+      font-size: 1.5rem;
+      line-height: 2rem;
+   }
+}
+
+.page-menu {
+   position: sticky;
+   top: 0;
+   height: var(--menu-height);
+   background: @menu-background-color;
+   overflow: hidden;
+   z-index: 10;
+
+   ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+   }
+
+   a {
+      line-height: var(--menu-height);
+      color: @background-color;
+      text-decoration: none;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}

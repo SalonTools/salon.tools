@@ -1,0 +1,29 @@
+{%- extends data.outerLayout -%}
+
+{%- block bodyClass -%}
+{# use the general-page layout for root widgets #}
+   {{ super() }} general-page
+{%- endblock -%}
+
+{% block main %}
+{%- set piece = data.piece -%}
+
+{%- if data.page.showPieceTitle -%}
+{%- set pieceTitleFormat = data.page.pieceTitleFormat or 'piece' -%}
+
+<section class="apos-area-widget-wrapper ta-center">
+   {%- if pieceTitleFormat == 'page-piece' -%}
+      <h2 class="heading-text">{{ data.page.pageTitle or data.page.title }}</h2>
+      <h3 class="outlined-text mt-2">{{ piece.title }}</h3>
+   {%- else -%}
+      <h2 class="heading-text">{{ piece.title }}</h2>
+   {%- endif -%}
+</section>
+{%- endif -%}
+
+{%- block pieceContent -%}
+   {#  pieceContent should be implemented by the consuming module #}
+{%- endblock -%}
+
+{% endblock %}
+

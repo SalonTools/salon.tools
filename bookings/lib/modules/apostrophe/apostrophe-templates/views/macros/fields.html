@@ -1,0 +1,66 @@
+
+{%- macro input(field, id, type, placeholder="") -%}
+<input id="{{ id }}"
+       name="{{ field.name }}"
+       class="apos-field-input apos-field-input-text apos-field-input-{{ type }}"
+       type="{{ type }}"
+       placeholder="{{ __(field.placeholder or placeholder) }}"
+       {%- if field.autocomplete %} autocomplete="{{ field.autocomplete }}" {%- endif -%}
+       {%- if field.readOnly %} disabled {%- endif -%}
+>
+{%- endmacro -%}
+
+{%- macro checkbox(field, id) -%}
+<div class="apos-field-input-select-wrapper">
+   <input
+      id="{{ id }}"
+      type="checkbox"
+      name="{{ field.name }}"
+      value="1">
+</div>
+{%- endmacro -%}
+
+{%- macro textarea(field, id) -%}
+<textarea id="{{ id }}" name="{{ field.name }}" class="apos-field-input apos-field-input-textarea"></textarea>
+{%- endmacro -%}
+
+{%- macro button(text, type="submit") -%}
+   <button type="{{ type }}">{{ text }}</button>
+{%- endmacro -%}
+
+{%- macro rowStart (id, type, name, label, attributes) -%}
+<div class="apos-field apos-field-{{ type | css }} apos-field-{{ name | css }}" data-name="{{ name}}" {{ attributes }}>
+   <label {%- if id %} for="{{ id }}" {%- endif %} class="apos-field-label">{{ __(label or '') }}</label>
+{%- endmacro -%}
+
+{%- macro rowEnd () -%}
+</div>
+{%- endmacro -%}
+
+{%- macro buttonRow(buttonLabel, termsField) -%}
+   {{ rowStart('submit', 'button', 'submit', '', '') }}
+      <div class="button-field-group">
+         {%- if termsField -%}
+            <label class="apos-field-container">
+               <input
+                  id="{{ termsField }}"
+                  type="checkbox"
+                  name="{{ termsField }}"
+                  value="1"> I Agree to the terms &amp; conditions
+            </label>
+         {%- endif -%}
+         {{ button(buttonLabel) }}
+      </div>
+   {{ rowEnd() }}
+{%- endmacro -%}
+
+{%- macro fieldset(field, id) -%}
+   {{ rowStart(id, field.type, field.name, field.label, field.attributes) }}
+      {%- if field.type == "boolean" -%}    {{ checkbox( field, id ) }}
+      {%- elif field.type == "date" -%}     {{ input( field, id, 'date', 'dd/mm/yyyy' ) }}
+      {%- elif field.type == "integer" -%}  {{ input( field, id, 'number' ) }}
+      {%- elif field.type == "string" and field.textarea -%} {{ textarea( field, id ) }}
+      {%- else -%}                          {{ input( field, id, 'text' ) }}
+      {%- endif -%}
+   {{ rowEnd() }}
+{%- endmacro -%}

@@ -1,0 +1,24 @@
+{%- extends data.outerLayout -%}
+
+{%- block bodyClass -%}
+   {{ super() }}
+   {%- if module.isWrappedPage(data.page) %} page-header-text {%- endif -%}
+
+{%- endblock -%}
+
+{%- block pageHeader -%}
+   {%- if module.isWrappedPage(data.page) -%}
+      {{ data.page.title }}: Search
+   {%- else -%}
+      {{ super() }}
+   {%- endif -%}
+{%- endblock -%}
+
+{% block main %}
+<div data-apos-ajax-context="{{ data.page.type }}">
+
+   {% include "indexAjax.html" %}
+
+</div>
+{% endblock %}
+

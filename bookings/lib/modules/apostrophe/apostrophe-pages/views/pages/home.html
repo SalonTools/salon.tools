@@ -1,0 +1,16 @@
+{%- extends data.outerLayout -%}
+
+{%- block bodyClass -%}
+   {{ super() }} {{ data.page.pageLayoutType }}
+{%- endblock -%}
+
+{%- block pageHeader -%}
+   {%- if data.page.pageLayoutType != 'page-header-text' -%} {{ super() }} ~ {% endif -%}
+   {{ data.page.title }}
+{%- endblock -%}
+
+{%- block main -%}
+   {{
+      apos.area(data.page, 'body', { widgets: data.widgets })
+   }}
+{%- endblock -%}

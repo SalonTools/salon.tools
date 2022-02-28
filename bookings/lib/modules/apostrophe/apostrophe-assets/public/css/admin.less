@@ -1,0 +1,107 @@
+@import "variables";
+
+@apos-base: @accent-color;
+@apos-primary: @text-color;
+
+.apos-ui.apos-modal {
+   color: #000;
+
+   .apos-field-tags .apos-tags {
+      position: relative;
+
+      .apos-field-input {
+         position: relative;
+      }
+
+   }
+
+   .apos-field {
+      margin-bottom: 0.5rem;
+   }
+
+   .apos-field-input,
+   .apos-button--action {
+      padding: 0.5rem;
+   }
+
+   .apos-modal-header, .apos-modal-body {
+      .apos-modal-filters .apos-modal-filters-search input {
+         padding: 0.5rem;
+      }
+   }
+
+   .apos-browse-and-autocomplete {
+      input {
+         flex: 1;
+      }
+      .apos-button {
+         position: relative;
+         padding: 0 0.5rem;
+         align-self: stretch;
+         right: auto;
+         border: none;
+         background: @apos-base;
+         color: @apos-white;
+      }
+   }
+
+   .apos-chooser-choice {
+      padding: 0.25rem 0.5rem;
+
+      &:first-of-type {
+         margin-top: 0.25rem;
+         border-top: 1px solid #363B3B;
+      }
+   }
+}
+
+.editor-helper {
+   text-align: center;
+   //.py();
+   //.my();
+   cursor: pointer;
+   background-color: @apos-delete;
+   color: @apos-lighter;
+   transition: all linear 250ms;
+
+   .no-editor-helper & {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      max-height: 0;
+   }
+}
+
+.editor-zone {
+   .hr-above {
+      position: relative;
+      border-color: @accent-color;
+      &:before { left: 0; width: 100%; }
+   }
+
+   .settings {
+      margin-top: @padding-size;
+      margin-bottom: @padding-size;
+      display: grid;
+      grid-gap: @padding-size-s;
+      grid-template-columns: 200px auto;
+   }
+
+   .home-page & {
+      margin-left: @padding-size;
+      margin-right: @padding-size;
+   }
+}
+
+.apos-area-controls {
+   .apos-dropdown-item {
+      padding: @padding-size-s;
+      text-align: center;
+   }
+}
+
+.editor-zone {
+   border-top: @border-width solid @accent-color;
+   margin-top: @padding-size;
+   padding-top: @padding-size;
+}

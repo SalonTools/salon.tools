@@ -1,0 +1,17 @@
+{
+  "name": "@salon/repo",
+  "private": true,
+  "version": "1.84.0",
+  "workspaces": [
+    "bookings",
+    "modules/*"
+  ],
+  "scripts": {
+    "postinstall": "patch-package",
+    "start": "yarn workspace @salon/bookings start"
+  },
+  "resolutions": {},
+  "dependencies": {
+    "patch-package": "^6.4.7"
+  }
+}

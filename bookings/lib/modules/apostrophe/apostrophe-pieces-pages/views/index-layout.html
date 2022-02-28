@@ -1,0 +1,49 @@
+{%- extends data.outerLayout -%}
+{%- set editor = data.permissions.edit -%}
+
+{%- block bodyClass -%}
+   {# use the general-page layout for root widgets #}
+   {{ super() }} {{ data.page._bodyClass }}
+{%- endblock -%}
+
+{% block main %}
+
+{%- if data.page._withTitle -%}
+<section class="apos-area-widget-wrapper ta-center">
+   <h2 class="heading-text">{{ data.page.pageTitle or data.page.title }}</h2>
+   {%- if data.page.pageSubTitle -%}
+   <h3 class="outlined-text mt-2">{{ data.page.pageSubTitle or data.page.withGroup }}</h3>
+   {%- endif -%}
+</section>
+{%- endif -%}
+
+{%- block beforeListing -%}
+{%- if editor -%}
+   <div class="editor-helper"> Page: beforeListing </div>
+{%- endif -%}
+{{
+   apos.area(data.page, 'beforeListing', { widgets: apos.shared.getWidgets() })
+}}
+{%- endblock -%}
+
+{%- block listing -%}
+<ul>
+   {% for piece in data.pieces -%}
+   <li class="flex-row mt-2">
+      <a {%- if piece._url %} href="{{ piece._url }}" {%- endif %}>{{ piece.title }}</a>
+   </li>
+   {% endfor -%}
+</ul>
+{%- endblock -%}
+
+{%- block afterListing -%}
+{%- if editor -%}
+   <div class="editor-helper"> page: afterListing </div>
+{%- endif -%}
+{{
+   apos.area(data.page, 'afterListing', { widgets: apos.shared.getWidgets() })
+}}
+{%- endblock -%}
+
+{% endblock %}
+

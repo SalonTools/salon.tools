@@ -1,0 +1,13 @@
+{%- macro searchForm (page, title, placeholder = '', containerClass = '') -%}
+{%- set action = page._url if page else data.baseUrlWithPrefix -%}
+
+<article {%- if containerClass %} class="{{ containerClass }}" {%- endif -%}>
+   <form data-apos-search-page-form method="GET" action="{{ action }}/search" class="form">
+      {%- if title -%}
+         <header>{{ title }}</header>
+      {%- endif -%}
+      <input type="text" name="q" placeholder="{{ placeholder or __('Search') }}" autocomplete="off">
+   </form>
+</article>
+
+{%- endmacro -%}

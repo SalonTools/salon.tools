@@ -1,0 +1,9 @@
+{%- set editor = data.permissions.edit -%}
+{%- for head in data.global.trailingHead -%}
+   {%- if editor -%}
+      <!-- trailingHead(name='{{ head.name }}' enabled={{ head.enabled }}); -->
+   {%- endif -%}
+   {%- if head.enabled %}
+      {{ head.content | safe }}
+   {%- endif -%}
+{%- endfor -%}

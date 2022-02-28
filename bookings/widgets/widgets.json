@@ -1,0 +1,63 @@
+{
+  "apostrophe-rich-text": {
+    "toolbar": [
+      "Styles",
+      "Bold",
+      "Italic",
+      "Link",
+      "BulletedList"
+    ],
+    "styles": [
+      {
+        "name": "Heading",
+        "element": "h2",
+        "attributes": {
+          "class": "heading-text ta-center"
+        }
+      },
+      {
+        "name": "Sub Heading",
+        "element": "h3",
+        "attributes": {
+          "class": "outlined-text"
+        }
+      },
+      {
+        "name": "Boxed Area",
+        "element": "section",
+        "attributes": {
+          "class": "boxed"
+        }
+      },
+      {
+        "name": "Centre Aligned Area",
+        "element": "section",
+        "attributes": {
+          "class": "ta-center"
+        }
+      },
+      {
+        "name": "Regular Text",
+        "element": "p",
+        "attributes": {
+          "class": "regular-text"
+        }
+      },
+      {
+        "name": "Small Text",
+        "element": "p",
+        "attributes": {
+          "class": "small-text"
+        }
+      }
+    ]
+  },
+  "apostrophe-images": {
+    "size": "full",
+    "renderer": "single",
+    "multiRenderer": "gallery",
+    "focalPoint": true
+  },
+  "apostrophe-video": {},
+  "apostrophe-html": {}
+}

@@ -1,0 +1,17 @@
+@apos-padding-1:     @padding-size-s;
+@apos-padding-2:     @padding-size;
+@apos-padding-3:     @padding-size-l;
+@apos-padding-4:     @padding-size-l;
+
+@apos-margin-1:      @padding-size-s;
+@apos-margin-2:      @padding-size;
+@apos-margin-3:      @padding-size-l;
+@apos-margin-4:      @padding-size-l;
+
+@apos-forms-spacing: @padding-size;
+
+@apos-base:          @foreground-color;
+
+.apos-glow(@color: @apos-base) {
+   .apos-drop-shadow(0, @border-width, 0, 0, fade(@color, 50%));
+}

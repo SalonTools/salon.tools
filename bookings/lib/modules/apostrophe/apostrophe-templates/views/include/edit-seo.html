@@ -1,0 +1,20 @@
+{%- set source = data.piece or data.page -%}
+{%- if editor and source.seo -%}
+
+<div class="editor-zone">
+<!--   <hr class="my-4" />-->
+   <h2 class="heading-text hr-accent hr-above"> SEO Settings: {{ source.title }} </h2>
+   <dl class="settings">
+      <dt>Description:</dt>
+      <dd>
+         {{ apos.singleton(source.seo, 'description', 'apostrophe-rich-text') }}
+      </dd>
+      <dt>Image:</dt>
+      <dd>
+         {{ apos.singleton(source.seo, 'image', 'apostrophe-images',
+            module.widgetOptions('seo.image')) }}
+      </dd>
+   </dl>
+</div>
+
+{%- endif -%}
