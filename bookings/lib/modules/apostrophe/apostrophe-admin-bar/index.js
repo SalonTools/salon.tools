@@ -41,9 +41,17 @@ module.exports = {
             'service',
          ],
       },
+      {
+         label: 'Booking',
+         items: [
+            'booking',
+            'booking-type',
+         ],
+      },
    ],
 
    order: [
+      'booking',
       'client',
       // 'cms-contact-form',
       // 'gf-artist',

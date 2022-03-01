@@ -11,6 +11,7 @@ module.exports = {
    addFields: [
       schemaField('title', 'Name', required),
       schemaField('segments', 'Segments', { listItemTemplate: 'service:segments-list-template.html' } , arraySchema(
+         schemaField('name', 'Name'),
          schemaField('duration', 'Duration', required, numericType(), def(0)),
          schemaField('gap', 'Gap', required, numericType(), def(0)),
       )),

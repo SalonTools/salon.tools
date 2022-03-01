@@ -5,7 +5,6 @@ module.exports = {
 
    name: 'client',
    slugPrefix: 'client-',
-   seoEnabled: false,
 
    addColumns: [
       {
@@ -56,12 +55,12 @@ module.exports = {
             ...newInstance(...args),
             title,
             slug: self.apos.utils.slugify(`${options.slugPrefix}${title}`),
-         }
+         };
       };
 
       self.beforeSave = (req, piece, opt, callback) => {
          piece.published = piece.published !== false;
-         piece.title = piece.title || self.apos.utils.generateId();
+         piece.title = `${piece.firstName} ${piece.lastName}`;
 
          return beforeSave(req, piece, opt, callback);
       };

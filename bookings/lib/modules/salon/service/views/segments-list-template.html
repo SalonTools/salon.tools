@@ -1,4 +1,7 @@
 <div>
+   {% if item.name %}
+      {{ item.name }}:
+   {% endif %}
    {{ item.duration }}m
    {% if item.gap %}
       + {{ item.gap }}m
