@@ -1,31 +1,33 @@
+const {fields: {booleanField, help, required, searchable, schemaField, textarea}} = require('@salon/cms-utils');
+
 module.exports = {
 
    addFields: [
-      stringField('siteName', 'Site Name', required()),
+      schemaField('siteName', 'Site Name', required()),
       {
          name: 'contact',
          type: 'object',
          schema: [
-            stringField('phone', 'Phone Number'),
-            stringField('mobile', 'Mobile Phone Number'),
-            stringField('email', 'Email Address'),
-            stringField('map', 'Google Maps URL'),
-            stringField('review', 'Google Review URL'),
+            schemaField('phone', 'Phone Number'),
+            schemaField('mobile', 'Mobile Phone Number'),
+            schemaField('email', 'Email Address'),
+            schemaField('map', 'Google Maps URL'),
+            schemaField('review', 'Google Review URL'),
          ],
       },
 
-      stringField('recaptchaSite', 'reCAPTCHA Site', help('See https://www.google.com/u/1/recaptcha/admin/ for site and secret details')),
-      stringField('recaptchaSecret', 'reCAPTCHA Secret'),
-      stringField('cookieConsent', 'Cookie Consent'),
+      schemaField('recaptchaSite', 'reCAPTCHA Site', help('See https://www.google.com/u/1/recaptcha/admin/ for site and secret details')),
+      schemaField('recaptchaSecret', 'reCAPTCHA Secret'),
+      schemaField('cookieConsent', 'Cookie Consent'),
 
       {
          name: 'trailingHead',
          type: 'array',
          titleField: 'name',
          schema: [
-            stringField('name', 'Name', required()),
+            schemaField('name', 'Name', required()),
             booleanField('enabled', 'Enabled'),
-            stringField('content', 'Content', required(), textarea(), searchable(false)),
+            schemaField('content', 'Content', required(), textarea(), searchable(false)),
          ],
       },
    ],
@@ -60,47 +62,3 @@ module.exports = {
       }
    }
 };
-
-function booleanField (name, label, ...showFields) {
-   const field = {
-      type: 'boolean',
-      def: false,
-      name,
-      label,
-   };
-
-   if (showFields.length) {
-      field.choices = [
-         {
-            value: true,
-            showFields,
-         },
-      ];
-   }
-
-   return field;
-}
-
-function stringField (name, label, ...modifiers) {
-   return modifiers.reduce((field, modifier) => modifier(field), {
-      type: 'string',
-      name,
-      label,
-   });
-}
-
-function required (required = true) {
-   return field => Object.assign(field, {required});
-}
-
-function textarea (textarea = true) {
-   return field => Object.assign(field, {textarea});
-}
-
-function searchable (searchable = true) {
-   return field => Object.assign(field, {searchable});
-}
-
-function help(help = '') {
-   return field => Object.assign(field, {help});
-}

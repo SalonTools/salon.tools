@@ -8,6 +8,7 @@
     "@kwsites/cms-layout-widgets": "^1.3.0",
     "@kwsites/cms-seo": "^1.5.0",
     "@kwsites/promise-result": "^1.2.0",
+    "@salon/cms-utils": "^1.0.0",
     "@salon/shared": "^1.0.0",
     "apostrophe": "^2.220.7",
     "apostrophe-override-options": "^2.2.1",

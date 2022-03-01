@@ -3,7 +3,7 @@ module.exports = {
 
    openOnLoad: false,
 
-   openOnHomepageLoad: true,
+   openOnHomepageLoad: false,
 
    addGroups: [
       {
@@ -32,10 +32,19 @@ module.exports = {
       //    label: 'Salon',
       //    items: ['gf-artist', 'gf-service', 'gf-price-list', 'gf-service-pricing'],
       // },
+      {
+         label: 'Salon',
+         items: [
+            'client',
+            'employee',
+            'level',
+            'service',
+         ],
+      },
    ],
 
    order: [
-      // '@kwsites/cms-email',
+      'client',
       // 'cms-contact-form',
       // 'gf-artist',
       'apostrophe-images',
