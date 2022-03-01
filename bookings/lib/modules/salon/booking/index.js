@@ -104,12 +104,15 @@ module.exports = {
          ]);
 
          if (!s.every(({levelsIds}) => e._levels.some(({_id}) => levelsIds.includes(_id)))) {
-            debugger;
             return callback(new Error(`Unable to book ${ s.title } with ${ e.title } - not a supported level`));
          }
 
          return callback();
       };
+
+      /**
+       * TODO: on saving a booking, cache the value of the booking
+       */
       self.beforeSave = (req, piece, opt, callback) => {
          // TODO: create an audit entry for the date / time of the blocks
          // TODO:

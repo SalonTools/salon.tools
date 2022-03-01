@@ -4,7 +4,6 @@ module.exports = {
    extend: 'apostrophe-pieces',
 
    name: 'client',
-   slugPrefix: 'client-',
 
    addColumns: [
       {
@@ -49,12 +48,9 @@ module.exports = {
       const {beforeSave, newInstance} = self;
 
       self.newInstance = (...args) => {
-         const title = self.apos.utils.generateId();
-
          return {
             ...newInstance(...args),
-            title,
-            slug: self.apos.utils.slugify(`${options.slugPrefix}${title}`),
+            slug: self.apos.utils.generateId(),
          };
       };
 

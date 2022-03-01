@@ -12,6 +12,10 @@ module.exports = {
          name: 'cms-redirect',
          label: 'Redirect'
       },
+      {
+         name: 'client-page',
+         label: 'Client',
+      }
    ],
 
    park: [

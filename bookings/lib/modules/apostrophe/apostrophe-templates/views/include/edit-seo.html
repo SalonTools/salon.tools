@@ -1,6 +1,5 @@
 {%- set source = data.piece or data.page -%}
-{%- if editor and source.seo -%}
-
+{%- if editor and source.seo and module.getOption('seoEnabled') -%}
 <div class="editor-zone">
 <!--   <hr class="my-4" />-->
    <h2 class="heading-text hr-accent hr-above"> SEO Settings: {{ source.title }} </h2>

@@ -6,4 +6,6 @@ module.exports = {
    'employee': { seoEnabled: false },
    'level': { seoEnabled: false },
    'service': { seoEnabled: false },
+
+   'client-pages': { seoEnabled: false },
 };
