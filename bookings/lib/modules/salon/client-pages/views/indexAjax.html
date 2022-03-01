@@ -1,0 +1,21 @@
+
+<ul data-apos-ajax-append="clients">
+   {% for piece in data.pieces -%}
+   <li class="flex-row mt-2">
+      <a {%- if piece._url %} href="{{ piece._url }}" {%- endif %}>{{ piece.title }}</a>
+   </li>
+   {% endfor -%}
+</ul>
+
+{%- if data.currentPage < data.totalPages -%}
+{%- set href = data.url | build({ page: data.currentPage + 1, append: 1 }) -%}
+<p class="hr-above pos-r ta-center">
+   <a data-apos-ajax-infinite-scroll href="{{ href }}">Load more...</a>
+</p>
+{#
+{%- else -%}
+<hr />
+data.currentPage: {{ data.currentPage }}<br />
+data.totalPages: {{ data.totalPages }}<br />
+#}
+{%- endif -%}
