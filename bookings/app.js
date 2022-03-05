@@ -20,6 +20,8 @@ require('apostrophe')({
          widgets: widgets.standard,
       },
       '@kwsites/cms-seo': {},
+
+      'apostrophe-headless': {},
    },
 
 });

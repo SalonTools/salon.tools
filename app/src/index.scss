@@ -1,0 +1,82 @@
+@use "~rsuite/dist/rsuite.min";
+
+//noinspection CssInvalidAtRule
+@import-normalize;
+
+:root {
+   --transition-short: 300ms;
+   --transition-regular: 500ms;
+   --transition-slow: 750ms;
+
+   --website-width: 1200px;
+   --mobile-site-width: 414px;
+   --not-mobile-site-width: calc(var(--mobile-site-width) + 1px);
+   --desktop-width: var(--website-width);
+   --menu-height: 2rem;
+
+   --padding-size: 1rem;
+   --padding-size-s: calc(var(--padding-size) / 2);
+   --padding-size-l: calc(var(--padding-size) * 2);
+
+   --grid-cell-gutter-large: --padding-size-l;
+   --grid-cell-gutter: --padding-size;
+   --grid-cell-gutter-mob: --padding-size-s;
+
+   --z-index-jump: 10;
+   --z-index-lightbox: 10000;
+
+   --base-font-face: Lato, Arial, Helvetica, sans-serif;
+   --base-font-size: 14pt;
+   --base-line-height: 1.75rem;
+   --mobile-line-height: 2rem;
+   --mobile-font-size: calc(var(--base-font-size) - 2pt);
+   --background-color: #fff;
+   --foreground-color: rgb(23, 29, 44);
+   --accent-color: darkorange;
+
+   --menu-background-color: rgb(128, 128, 128);
+
+   --border-width: 1px;
+   --border-color: var(--accent-color);
+   --text-color: var(--foreground-color);
+
+   --rs-body: var(--foreground-color);
+   --rs-text-primary: var(--foreground-color);
+
+   color: var(--background-color);
+   height: 100vh;
+}
+
+@media only screen and (max-width: 414px) {
+   html {
+      font: var(--mobile-font-size) / var(--mobile-line-height) var(--base-font-face);
+   }
+}
+
+@media only screen and (min-width: 415px) {
+   html {
+      font: var(--base-font-size) / var(--base-line-height) var(--base-font-face);
+      font-weight: 300;
+   }
+}
+
+body {
+   margin: 0;
+   height: 100vh;
+}
+
+code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+   monospace;
+}
+
+main {
+   background: var(--background-color);
+   color: var(--foreground-color);
+
+   position: relative;
+   margin: 0 auto;
+
+   width: min(var(--desktop-width), 80vw);
+}
+

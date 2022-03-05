@@ -11,6 +11,7 @@
     "@salon/cms-utils": "^1.0.0",
     "@salon/shared": "^1.0.0",
     "apostrophe": "^2.220.7",
+    "apostrophe-headless": "^2.12.1",
     "apostrophe-override-options": "^2.2.1",
     "apostrophe-pieces-export": "^2.4.1",
     "date-fns": "^2.28.0",

@@ -1,36 +1,37 @@
 import React from 'react';
-import classNames from 'classnames';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import { PageHeader } from './components/page-header';
 import { PageMenu } from './components/page-menu';
-import { cssClasses } from './constants/css-classes';
+import { ClientsPage } from './pages/clients';
 import { HomePage } from './pages/home.page';
 
 import './App.css';
 
+import { Button } from 'rsuite';
+
+const queryClient = new QueryClient()
 
 function App() {
    return (
-      <BrowserRouter>
-         <main className={cssClasses.APP}>
-            <header className={cssClasses.PAGE_HEADER}>
-               <h1>
-                  <Link to={'/'}>Site Team</Link>
-               </h1>
-            </header>
-            <PageMenu />
-            <section id={'main'} className={classNames(cssClasses.PAGE_CONTENT, cssClasses.PAGE_COMPONENT)}>
+      <QueryClientProvider client={queryClient}><BrowserRouter>
+         <main>
+            <PageHeader/>
+            <PageMenu/>
+            <section id={'main'}>
                <AppRouter/>
             </section>
+            <Button appearance={'subtle'}> Poop </Button>
          </main>
-      </BrowserRouter>
+      </BrowserRouter></QueryClientProvider>
    );
 }
 
 function AppRouter() {
    return <Routes>
-      <Route path={'/'} element={<HomePage/>} />
-      <Route path={'/clients'} element={<h1>CLIENTS</h1>} />
+      <Route path={'/'} element={<HomePage/>}/>
+      <Route path={'/clients'} element={<ClientsPage/>}/>
    </Routes>
 }
 
