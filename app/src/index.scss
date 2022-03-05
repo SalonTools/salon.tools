@@ -80,3 +80,8 @@ main {
    width: min(var(--desktop-width), 80vw);
 }
 
+ul, ol {
+   margin: 0;
+   list-style: none;
+}
+
