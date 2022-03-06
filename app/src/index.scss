@@ -8,7 +8,7 @@
    --transition-regular: 500ms;
    --transition-slow: 750ms;
 
-   --website-width: 1200px;
+   --website-width: 800px;
    --mobile-site-width: 414px;
    --not-mobile-site-width: calc(var(--mobile-site-width) + 1px);
    --desktop-width: var(--website-width);
@@ -31,8 +31,8 @@
    --mobile-line-height: 2rem;
    --mobile-font-size: calc(var(--base-font-size) - 2pt);
    --background-color: #fff;
-   --foreground-color: rgb(23, 29, 44);
-   --accent-color: darkorange;
+   --foreground-color: #334;
+   --accent-color: darkcyan;
 
    --menu-background-color: rgb(128, 128, 128);
 
@@ -42,6 +42,8 @@
 
    --rs-body: var(--foreground-color);
    --rs-text-primary: var(--foreground-color);
+   --rs-navs-selected: var(--accent-color);
+   --rs-navs-text: var(--foreground-color);
 
    color: var(--background-color);
    height: 100vh;
@@ -77,7 +79,7 @@ main {
    position: relative;
    margin: 0 auto;
 
-   width: min(var(--desktop-width), 80vw);
+   width: max(var(--desktop-width), 100vw);
 }
 
 ul, ol {

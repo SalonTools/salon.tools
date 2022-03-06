@@ -1,18 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
+import { useHref, useLinkClickHandler, useMatch, useResolvedPath } from 'react-router-dom';
+import { Nav } from 'rsuite';
 
-import styles from './page-menu.module.css';
+import styles from './page-menu.module.scss';
 
-export function PageMenu() {
-   return <section className={styles.pageMenu}>
-      <ul>
-         <li><NavLink className={activeClassName} to="/clients">Clients</NavLink></li>
-         <li><NavLink className={activeClassName} to="/search">Search</NavLink></li>
-      </ul>
-   </section>
+function CustomNav({ to, label }: { label: string, to: string }) {
+   const href = useHref(to);
+   let resolved = useResolvedPath(to);
+   let match = useMatch({ path: resolved.pathname, end: true });
+
+   const onClick = useLinkClickHandler(href);
+
+   return <Nav.Item active={!!match} href={href} onClick={onClick}>{label}</Nav.Item>
 }
 
-function activeClassName({isActive}: { isActive: boolean }) {
-   return classNames(isActive && styles.current);
+export function PageMenu() {
+
+   return <Nav appearance={'subtle'}  reversed className={styles.pageMenu}>
+      <CustomNav to={'/clients'} label={'Clients'}/>
+      <CustomNav to={'/search'} label={'Search'}/>
+   </Nav>
 }

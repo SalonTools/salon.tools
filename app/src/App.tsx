@@ -9,8 +9,6 @@ import { HomePage } from './pages/home.page';
 
 import './App.css';
 
-import { Button } from 'rsuite';
-
 const queryClient = new QueryClient()
 
 function App() {
@@ -22,7 +20,6 @@ function App() {
             <section id={'main'}>
                <AppRouter/>
             </section>
-            <Button appearance={'subtle'}> Poop </Button>
          </main>
       </BrowserRouter></QueryClientProvider>
    );

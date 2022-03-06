@@ -1,0 +1,11 @@
+.pageHeader {
+   background: var(--accent-color);
+   text-align: center;
+
+   a {
+      color: var(--background-color);
+      text-decoration: none;
+      font-size: 2.5rem;
+      line-height: 4rem;
+   }
+}
