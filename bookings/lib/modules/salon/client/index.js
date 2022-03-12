@@ -30,6 +30,7 @@ module.exports = {
    ],
    defaultRemoveColumns: [ 'title', 'published' ],
    addFilters: [
+      {name: 'name'},
    ],
    addFields: [
       schemaField('title', 'Ref', {contextual: true}),
