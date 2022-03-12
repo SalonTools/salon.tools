@@ -1,0 +1,14 @@
+
+.main {
+   background: var(--background-color);
+   color: var(--foreground-color);
+
+   position: relative;
+   margin: 0 auto;
+
+   width: max(var(--desktop-width), 100vw);
+}
+
+.section {
+   padding: var(--padding-size-s);
+}

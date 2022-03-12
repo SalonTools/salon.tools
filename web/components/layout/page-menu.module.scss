@@ -1,0 +1,12 @@
+
+.pageMenu {
+   position: sticky;
+   top: 0;
+   height: var(--menu-height);
+   overflow: hidden;
+   z-index: 10;
+}
+
+.current[aria-current="page"] {
+   text-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+}

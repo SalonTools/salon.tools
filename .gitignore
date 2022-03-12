@@ -3,5 +3,11 @@
 node_modules/
 locales/
 
+.next
+build
+coverage
+out
+*.log
+
 .env
 *.auth.json

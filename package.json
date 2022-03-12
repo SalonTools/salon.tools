@@ -5,6 +5,7 @@
   "workspaces": [
     "app",
     "bookings",
+    "web",
     "modules/*"
   ],
   "scripts": {
