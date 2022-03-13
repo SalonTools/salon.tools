@@ -6,6 +6,7 @@ import { ErrorPage } from '../error-page/error-page';
 
 import { ClientsList } from './clients-list';
 import { ClientListFilters } from './clients-list-filters';
+import { ClientDetail } from './client-detail';
 
 function fetcher(url) {
    return fetch(url).then((res) => res.json());
@@ -27,6 +28,8 @@ function useClients(column: string, order: SortOrder, filter: string) {
 }
 
 export function ClientsHome() {
+   const [selectedClient, setSelectedClient] = useState<ClientPiece | undefined>();
+   const clearSelectedClient = useCallback(() => setSelectedClient(undefined), [setSelectedClient]);
    const [filter, setFilter] = useState('');
    const [sort, setSort] = useState<{ column: string, order: SortOrder }>({column: 'lastName', order: 'asc'});
    const onSortColumn = useCallback((column: string, order: SortOrder = 'asc') => {
@@ -40,8 +43,12 @@ export function ClientsHome() {
          <ClientsList
             data={data}
             loading={loading}
+            onSelect={setSelectedClient}
             onSortColumn={onSortColumn}
             sortColumn={sort.column}
-            sortType={sort.order}/>}
+            sortType={sort.order}
+         />}
+
+      <ClientDetail close={clearSelectedClient} client={selectedClient}/>
    </>
 }

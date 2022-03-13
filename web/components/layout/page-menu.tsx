@@ -4,7 +4,7 @@ import { Nav } from 'rsuite';
 
 import styles from './page-menu.module.scss';
 
-function CustomNav({ to, label }: { label: string, to: string }) {
+function CustomNav({to, label}: { label: string, to: string }) {
    const router = useRouter();
 
    const match = router.asPath.startsWith(to);
@@ -19,7 +19,7 @@ function CustomNav({ to, label }: { label: string, to: string }) {
 
 export default function PageMenu() {
 
-   return <Nav appearance={'subtle'}  reversed className={styles.pageMenu}>
+   return <Nav appearance={'subtle'} reversed className={styles.pageMenu}>
       <CustomNav to={'/clients'} label={'Clients'}/>
       <CustomNav to={'/search'} label={'Search'}/>
    </Nav>

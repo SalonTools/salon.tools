@@ -10,14 +10,14 @@ interface LayoutProps {
    children: ReactNode;
 }
 
-export function Layout ({children}: LayoutProps) {
+export function Layout({children}: LayoutProps) {
    return <>
       <Head>
          <title>Home</title>
       </Head>
       <main className={styles.main}>
-         <PageHeader />
-         <PageMenu />
+         <PageHeader/>
+         <PageMenu/>
          <section className={styles.section}>
             {children}
          </section>

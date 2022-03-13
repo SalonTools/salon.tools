@@ -2,12 +2,12 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { PageHeader } from './components/page-header';
-import { PageMenu } from './components/page-menu';
-import { ClientsPage } from './pages/clients';
-import { HomePage } from './pages/home.page';
+import { PageHeader } from '../../components/page-header';
+import { PageMenu } from '../../components/page-menu';
+import { ClientsPage } from '../clients';
+import { HomePage } from '../home.page';
 
-import './App.css';
+import styles from './App.module.scss';
 
 const queryClient = new QueryClient()
 
@@ -17,7 +17,7 @@ function App() {
          <main>
             <PageHeader/>
             <PageMenu/>
-            <section id={'main'}>
+            <section className={styles.section}>
                <AppRouter/>
             </section>
          </main>

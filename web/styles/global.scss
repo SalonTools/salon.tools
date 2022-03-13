@@ -25,7 +25,8 @@
    --z-index-jump: 10;
    --z-index-lightbox: 10000;
 
-   --base-font-face: Lato, Arial, Helvetica, sans-serif;
+   --accent-font-face: Lato, Arial, Helvetica, sans-serif;
+   --base-font-face: Helvetica, sans-serif;
    --base-font-size: 14pt;
    --base-line-height: 1.75rem;
    --mobile-line-height: 2rem;
@@ -44,6 +45,11 @@
    --rs-text-primary: var(--foreground-color);
    --rs-navs-selected: var(--accent-color);
    --rs-navs-text: var(--foreground-color);
+
+   --rs-text-heading: black; // var(--foreground-color);
+
+   --rs-form-errormessage-text: darkred;
+
 
    color: var(--background-color);
    height: 100vh;
@@ -66,4 +72,13 @@
 body {
    margin: 0;
    height: 100vh;
+   //font-family: var(--base-font-face);
+}
+
+h1, h2, h3, h4, .rs-drawer-title {
+   font-family: var(--accent-font-face);
+}
+
+[aria-invalid="true"] {
+   border-color: var(--rs-form-errormessage-text);
 }
